@@ -163,7 +163,7 @@ Ha egy művelet eredménye `NaN` lehet, használhatjuk a `||` (vagy) operátort,
 
 ```ts
 let bemenet = parseInt("korte"); // NaN lenne
-let biztosSzam = bemenet || 0;   // Ha NaN (ami falsy), akkor 0 lesz
+let biztosSzam = bemenet || 0;   // Ha NaN (ami fals), akkor 0 lesz
 
 console.log(biztosSzam); // 0
 

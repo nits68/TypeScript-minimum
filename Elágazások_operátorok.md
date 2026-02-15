@@ -1,4 +1,4 @@
-# TypeScript - Elágazások (szelekció) és operátorok
+# TypeScript - Elágazások (szelekciók) és operátorok
 ## 1️⃣ if utasítás
 
 ### Alap szintaxis
@@ -50,7 +50,7 @@ if (szam % 2 === 0) {
 ``` ts
 if (feltétel1) {
     // ha ez igaz
-} else if (feltétel2) {
+} else if (feltétel2) { // else if-ből több is lehet
     // ha az első hamis, de ez igaz
 } else {
     // ha egyik sem igaz
@@ -141,7 +141,7 @@ console.log(eredmeny); // "Páratlan"
 
 
   * `===` egyenlő - értékek és típusok is azonosak
-  * `==` egyenlő - értékek típuskonverzió után azonosak       
+  * `==` egyenlő - értékek implicit típuskonverzió után azonosak       
   * `!==` nem egyenlő
   * `>` nagyobb
   * `<` kisebb
@@ -153,7 +153,7 @@ console.log(eredmeny); // "Páratlan"
 
 ## 8️⃣ Igaz és hamis értékek
 
-TypeScriptben nem csak a `boolean` típusú változók kerülhetnek egy `if` feltételébe. Minden értéknek van egy "igazságtartalma", amikor logikai környezetben használjuk őket.
+TypeScriptben nem csak a `boolean` típusú változók kerülhetnek egy `if` feltételébe, vagy `ciklus` feltételbe. Minden értéknek van egy "igazságtartalma", amikor logikai környezetben használjuk őket.
 
 ### 🔴 False (Hamisnak értékelt) értékek
 
@@ -218,7 +218,7 @@ console.log(!!{});      // true
 
 ## 9️⃣ Egyéb operátorok (felsorolás)
 
-### Aritmetikai (Matematikai) operátorok
+### Aritmetikai (matematikai) operátorok
 
 * `+` (összeadás)
 * `-` (kivonás)
@@ -226,15 +226,18 @@ console.log(!!{});      // true
 * `/` (osztás)
 * `%` (maradékos osztás - modulo)
 * `**` (hatványozás)
+* `egész osztás` (TS-ben nincs, helyette `Math.floor(a/b)`)
 
-### Léptető operátorok
+### Frissitő (léptető) operátorok
 
 * `++` (inkrementálás - növelés eggyel)
 * `--` (dekrementálás - csökkentés eggyel)
 
-### Értékadó operátorok (Rövidítések)
+Fontos hogy `prefix`, vagy `postfix` pozícióban használjuk őket. Prefix: előbb növel, majd használ: `Math.sqrt(++x)`. Postfix: előbb használ, majd növel: `Math.sqrt(x++)`.
 
-* `=` (simán értékadás)
+### Értékadó operátorok (rövidítések)
+
+* `=` (értékadás)
 * `+=` (hozzáadás és értékadás)
 * `-=` (kivonás és értékadás)
 * `*=` (szorzás és értékadás)
@@ -267,7 +270,7 @@ let nev: string | undefined = undefined; // Nincs neve
 
 // Hagyományos VAGY (||) - HIBA!
 let eredmeny1 = pontszam || 10; 
-console.log(eredmeny1); // 10 (Hibás, felülírta a valós 0 pontot!)
+console.log(eredmeny1); // 10 (Hibás, felülírta a valós 0 értéket!)
 
 // Modern Nullish Coalescing (??) - HELYES!
 let eredmeny2 = pontszam ?? 10; 

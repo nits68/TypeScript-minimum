@@ -67,6 +67,17 @@ const tartalom: string = fs.readFileSync("adat.txt", "utf-8");
 
 📌 Az `"utf-8"` megadása hasznos, különben Buffer típusú objektumot kapunk.
 
+### Megoldás osztály tipikus konstruktor példa
+```ts
+  constructor(source: string) {
+    const lines: string[] = fs.readFileSync(source, "utf-8").split("\n").slice(1);
+    for (const line of lines) {
+      const actLine: string = line.trim();
+      if (actLine.length > 0) this.#rivers.push(new River(actLine));
+    }
+  }
+```
+
 ---
 
 ## 4️⃣ Hozzáfűzés fájlhoz – `appendFileSync()`

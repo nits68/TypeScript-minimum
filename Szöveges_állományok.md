@@ -70,8 +70,8 @@ const tartalom: string = fs.readFileSync("adat.txt", "utf-8");
 ### Megoldás osztály tipikus konstruktor példa
 ```ts
   constructor(source: string) {
-    const lines: string[] = fs.readFileSync(source, "utf-8").split("\n").slice(1);
-    for (const line of lines) {
+    const dataLines: string[] = fs.readFileSync(source, "utf-8").split("\n").slice(1);
+    for (const line of dataLines) {
       const actLine: string = line.trim();
       if (actLine.length > 0) this.#rivers.push(new River(actLine));
     }

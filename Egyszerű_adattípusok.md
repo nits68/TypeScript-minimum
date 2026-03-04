@@ -1,8 +1,8 @@
-# TypeScript -- Egyszerű (primitív) adattípusok
+# TypeScript -- Egyszerű (primitív) adattípusok és értékek
 
 ## 1. number
 
-Szám típus (egész és lebegőpontos is)
+Numerikus típus (egész és lebegőpontos is)
 
 ``` ts
 let kor: number = 18;
@@ -13,7 +13,7 @@ let pi: number = 3.14;
 
 ## 2. string
 
-Szöveg típus
+Szöveges típus
 
 ``` ts
 let nev: string = "Anna";
@@ -24,7 +24,7 @@ let uzenet: string = `Szia ${nev}!`; // Template string
 
 ## 3. boolean
 
-Logikai érték (true / false)
+Logikai típus (lehetséges érték **true**, vagy **false**)
 
 ``` ts
 let aktiv: boolean = true;
@@ -33,9 +33,9 @@ let kesz: boolean = false;
 
 ---
 
-## 4. null
+## 4. null (érték is)
 
-Szándékosan „nincs érték"
+tudatosan „nincs érték", vagy nincs még referencia (memória cím) összetett típusoknál
 
 ``` ts
 let adat: null = null;
@@ -43,7 +43,7 @@ let adat: null = null;
 
 ---
 
-## 5. undefined
+## 5. undefined (érték is)
 
 Nincs inicializálva
 
@@ -79,7 +79,7 @@ A `NaN` (Not-a-Number) a TypeScriptben (és JavaScriptben) egy speciális érté
 Itt van a `NaN` összefoglalója az általad kedvelt formátumban:
 
 
-# A NaN (Not-a-Number) érték
+# A NaN (Not-a-Number) érték (nem típus, a NaN típusa number)
 
 A `NaN` jelentése **"Nem Szám"**, de ironikus módon a nyelvben ez egy `number` típusú speciális érték. Akkor kapjuk, ha egy matematikai műveletet nem lehet elvégezni.
 
@@ -144,7 +144,7 @@ if (Number.isNaN(ertek)) {
 
 ---
 
-## 4️⃣ Típus info
+## 4️⃣ Típus info - typeof operátor
 
 Bár a neve "Nem Szám", a típusa mégis szám.
 

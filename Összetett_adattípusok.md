@@ -6,8 +6,8 @@ Azonos típusú elemek tárolására. Kétféle jelölés létezik, de az első 
 
 ### Szintaxis
 ```ts
-let lista1: típus[] = [...];
-let lista2: Array<típus> = [...]; // Generikus írásmód
+let tömb1: típus[] = [...];
+let tömb2: Array<típus> = [...]; // Generikus írásmód
 ```
 
 ### Példa
@@ -18,6 +18,33 @@ let nevek: Array<string> = ["Anna", "Béla", "Cecil"];
 
 // Hozzáadás
 nevek.push("Dénes"); 
+
+// Bejárás klasszikus for ciklussal:
+let szamok: number[] = [10, 20, 30];
+
+for (let i = 0; i < szamok.length; i++) {
+    console.log(i, szamok[i]);
+}
+
+// Bejárás for-in ciklussal:
+for (let index in szamok) {
+    console.log(index, szamok[index]);
+}
+
+// Bejárás for-of ciklussal (ninics index):
+for (let ertek of szamok) {
+    console.log(ertek);
+}
+
+// Bejárás a tömb forEach() metódusával (nincs break, continue és return):
+szamok.forEach((ertek, index) => {
+    console.log(index, ertek);
+});
+
+// Speciális lehetőségek:
+let duplazott = szamok.map(szam => szam * 2);
+let nagyok = szamok.filter(szam => szam > 15);
+let osszeg = szamok.reduce((acc, szam) => acc + szam, 0);
 
 ```
 
@@ -37,13 +64,19 @@ dolgozo = ["Kiss János", 35, true];
 
 // Hiba lenne: dolgozo = [35, "Kiss János", true]; // A sorrend számít!
 
+// Tuple inincializálása kezdőértékekkel:
+let adat: [string, number] = ["Péter", 25];
+
+// Hivatkozás Tuple elemeire (indexeléssel):
+console.log(adat[0]); // Péter
+console.log(adat[1]); // 25
 ```
 
 ---
 
 ## 3️⃣ Objektumok (Objects) és definiálásuk
 
-Kulcs-érték párok tárolása. TypeScriptben érdemes `interface` vagy `type` segítségével előre definiálni a szerkezetet.
+Kulcs-érték párok tárolása. TypeScript-ben érdemes `interface` vagy `type` segítségével előre definiálni a szerkezetet.
 
 ### Definíció interface-el
 
@@ -88,7 +121,16 @@ Hasonlít az objektumhoz, de a kulcs **bármilyen típusú** lehet (nem csak str
 
 ```ts
 // Kulcs: string, Érték: number
+// Üres szótár (Map)
 let raktar = new Map<string, number>();
+
+// Elemekkel inicializált szótár:
+const stat: Map<string, number> = new Map<string, number>([
+  ["alma", 2],
+  ["körte", 4],
+  ["szilva", 3],
+  ["barack", 5],
+]);
 
 // Elemek hozzáadása
 raktar.set("Alma", 100);
@@ -103,6 +145,10 @@ if (raktar.has("Szilva")) {
 }
 raktar.delete("Körte");
 
+// Szótár bejárása for-of ciklussal
+for (const [kulcs, érték] of stat) {
+    vissza += `${kulcs} pálinka ${érték} liter\n`;
+  }
 ```
 
 ---
@@ -114,20 +160,27 @@ Olyan gyűjtemény, amelyben minden érték **csak egyszer** szerepelhet (egyedi
 ### Létrehozás és használat
 
 ```ts
+// Üres halmaz létrehozása
 let egyediSzamok = new Set<number>();
 
+// Elemek hozzáadása
 egyediSzamok.add(10);
 egyediSzamok.add(20);
 egyediSzamok.add(10); // Ezt figyelmen kívül hagyja, mert a 10 már benne van!
 
+// Halmaz elemszáma:
 console.log(egyediSzamok.size); // 2
 
+// Halmaz inicializálása kezőértékekkel
+let egyediSzamok2 = new Set<number>([1, 2, 2, 3, 4, 4]);
+console.log(egyediSzamok2); // {1, 2, 3, 4}
 ```
 
-### Tipp: Tömb szűrése (Duplikációk eltávolítása)
+### Tipp: Tömb szűrése: Duplikációk eltávolítása
 
 ```ts
 let szamok = [1, 2, 2, 3, 3, 3, 4];
+// Halmaz inicializálássa tömbbel "new Set(szamok)", majd a halmazt tömbbé alakítjuk vissza "[...new ]":
 let egyedi = [...new Set(szamok)]; // [1, 2, 3, 4]
 
 ```

@@ -15,6 +15,7 @@ let tömb2: Array<típus> = [...]; // Generikus írásmód
 ```ts
 let szamok: number[] = [1, 2, 3, 4, 5];
 let nevek: Array<string> = ["Anna", "Béla", "Cecil"];
+let ures: number[] = [];
 
 // Hozzáadás
 nevek.push("Dénes"); 
@@ -138,6 +139,15 @@ raktar.set("Körte", 50);
 
 // Érték lekérése
 console.log(raktar.get("Alma")); // 100
+
+// Típuskonverzió, ha biztosan van "Körte" kulcs a szótárban:
+const körteMennyisége: number = raktar.get("Körte") as number; // Mivel a get() visszatérhet undefined értékkel is
+// Vagy undefined esetén legyen nulla az érték:
+const körteMennyisége: number = raktar.get("Körte") ?? 0;
+// A ?? (nullish coalescing operator) azt jelenti: 
+// ha a bal oldali érték null vagy undefined, akkor a jobb oldalt használja.
+// A || (logical OR) operátor is használható, 
+// de az minden "falsy" érték (0, "", false, null, undefined, NaN, -0, 0n) esetén a jobb oldalt adja vissza.
 
 // Ellenőrzés és Törlés
 if (raktar.has("Szilva")) {

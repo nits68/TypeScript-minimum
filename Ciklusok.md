@@ -163,3 +163,99 @@ for (let i: number = 0; i < 5; i++) {
 }
 
 ```
+
+
+## 7️⃣ `forEach()` metódus (tömbök bejárása)
+
+A `forEach()` egy tömbmetódus, amely végigmegy a tömb minden elemén, és egy megadott függvényt hajt végre rajtuk.
+
+Ez **nem klasszikus ciklus**, hanem egy **metódus**, amely egy **callback függvényt** kap paraméterként.
+
+### Alap szintaxis
+
+```ts
+tomb.forEach((elem[, index]) => {
+    // kód
+});
+```
+
+* `elem` – az aktuális elem értéke
+* `index` – az aktuális elem indexe (nem elhagyható)
+
+---
+
+### Példa
+
+```ts
+let szamok: number[] = [10, 20, 30];
+
+szamok.forEach((ertek, index) => {
+    console.log(index + ": " + ertek);
+});
+```
+
+Kimenet:
+
+```
+0: 10
+1: 20
+2: 30
+```
+
+---
+
+### Fontos különbségek a ciklusokhoz képest
+
+A `forEach()` **nem működik teljesen úgy, mint egy ciklus**.
+
+❗ **Nem használható benne:**
+
+* `break`
+* `continue`
+* `return` a ciklus megszakítására
+
+A `return` csak a callback függvényből lép ki, **nem állítja meg a forEach futását**.
+
+---
+
+### Példa – a `return` nem szakítja meg a bejárást
+
+```ts
+let szamok: number[] = [1, 2, 3, 4];
+
+szamok.forEach((szam) => {
+    if (szam === 3) {
+        return; // csak a callbackből lép ki
+    }
+    console.log(szam);
+});
+```
+
+Kimenet:
+
+```
+1
+2
+4
+```
+
+A ciklus **nem áll meg**, csak a 3-as elem feldolgozása marad ki.
+
+---
+
+### Mikor érdemes használni?
+
+A `forEach()` akkor jó választás, ha:
+
+* egy tömb **minden elemén végre akarunk hajtani valamit**
+* **nem kell megszakítani** a bejárást
+* nincs szükség bonyolult vezérlésre
+
+Ha **meg kell szakítani a ciklust**, akkor inkább:
+
+* `for`
+* `for-of`
+
+ciklust érdemes használni.
+
+---

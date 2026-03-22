@@ -22,21 +22,21 @@ import fs from "fs";
 
 ---
 
-# 📖 SZINKRON (Blocking) műveletek
+## 2️⃣ SZINKRON (Blocking) műveletek
 
 A program megvárja, amíg a fájlművelet befejeződik.
 
 ---
 
-## 2️⃣ Fájl írása – `writeFileSync()`
+### 2.1 Fájl írása – `writeFileSync()`
 
-### Alap szintaxis
+#### Alap szintaxis
 
 ```ts
 fs.writeFileSync(fajlnev, tartalom);
 ```
 
-### Példa
+#### Példa
 
 ```ts
 import fs from "fs";
@@ -49,15 +49,15 @@ fs.writeFileSync("adat.txt", "Ez egy teszt szöveg.");
 
 ---
 
-## 3️⃣ Fájl olvasása – `readFileSync()`
+## 2.2 Fájl olvasása – `readFileSync()`
 
-### Alap szintaxis
+#### Alap szintaxis
 
 ```ts
 fs.readFileSync(fajlnev, encoding);
 ```
 
-### Példa
+#### Példa
 
 ```ts
 import fs from "fs";
@@ -80,7 +80,7 @@ const tartalom: string = fs.readFileSync("adat.txt", "utf-8");
 
 ---
 
-## 4️⃣ Hozzáfűzés fájlhoz – `appendFileSync()`
+## 2.3 Hozzáfűzés fájlhoz – `appendFileSync()`
 
 ```ts
 fs.appendFileSync("adat.txt", "\nÚj sor hozzáadva.");
@@ -90,13 +90,13 @@ fs.appendFileSync("adat.txt", "\nÚj sor hozzáadva.");
 
 ---
 
-# ⚡ ASZINKRON (Non-blocking) műveletek – Ajánlott
+## 3️⃣ ASZINKRON (Non-blocking) műveletek – Ajánlott
 
 Nem állítják meg a program futását.
 
 ---
 
-## 5️⃣ Fájl írása – `writeFile()` (Promise)
+## 3.1 Fájl írása – `writeFile()` (Promise)
 
 ```ts
 import { promises as fs } from "fs";
@@ -111,7 +111,7 @@ fajlIras();
 
 ---
 
-## 6️⃣ Fájl olvasása – `readFile()`
+## 3.2 Fájl olvasása – `readFile()`
 
 ```ts
 import { promises as fs } from "fs";
@@ -126,7 +126,7 @@ fajlOlvasas();
 
 ---
 
-## 7️⃣ Hibakezelés (try–catch)
+## 4️⃣ Hibakezelés (try–catch)
 
 Fájlműveleteknél **mindig ajánlott**.
 
@@ -147,13 +147,13 @@ biztonsagosOlvasas();
 
 ---
 
-## 8️⃣ JSON fájl kezelése
+## 5️⃣ JSON fájl kezelése
 
 Nagyon gyakori felhasználás.
 
 ---
 
-## JSON írás
+### 5.1 JSON írás
 
 ```ts
 import { promises as fs } from "fs";
@@ -170,7 +170,7 @@ await fs.writeFile("user.json", JSON.stringify(user, null, 2));
 
 ---
 
-## JSON olvasás
+### 5.2 JSON olvasás
 
 ```ts
 const adat = await fs.readFile("user.json", "utf-8");
@@ -182,7 +182,7 @@ console.log(userObj.nev);
 
 ---
 
-## 9️⃣ Fájl létezésének ellenőrzése
+## 6️⃣ Fájl létezésének ellenőrzése
 
 ```ts
 import * as fs from "fs";
@@ -194,9 +194,9 @@ if (fs.existsSync("adat.txt")) {
 
 ---
 
-## 🔟 Hasznos fájlműveletek
+## 7️⃣ További asznos fájlműveletek
 
-### 10.1 Fájl törlése
+### 7.1 Fájl törlése
 
 ```ts
 fs.unlinkSync("adat.txt");
@@ -204,7 +204,7 @@ fs.unlinkSync("adat.txt");
 
 ---
 
-### 10.2 Könyvtár létrehozása
+### 7.2 Könyvtár létrehozása
 
 ```ts
 fs.mkdirSync("ujmappa");
@@ -212,7 +212,7 @@ fs.mkdirSync("ujmappa");
 
 ---
 
-### 10.3 Könyvtár tartalmának listázása
+### 7.3 Könyvtár tartalmának listázása
 
 ```ts
 const fajlok = fs.readdirSync("./");

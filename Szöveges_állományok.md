@@ -147,7 +147,7 @@ biztonsagosOlvasas();
 
 ---
 
-# 📂 8️⃣ JSON fájl kezelése
+## 8️⃣ JSON fájl kezelése
 
 Nagyon gyakori felhasználás.
 
@@ -182,7 +182,7 @@ console.log(userObj.nev);
 
 ---
 
-# 📁 9️⃣ Fájl létezésének ellenőrzése
+## 9️⃣ Fájl létezésének ellenőrzése
 
 ```ts
 import * as fs from "fs";
@@ -194,9 +194,9 @@ if (fs.existsSync("adat.txt")) {
 
 ---
 
-# 🔟 Hasznos fájlműveletek
+## 🔟 Hasznos fájlműveletek
 
-### Fájl törlése
+### 10.1 Fájl törlése
 
 ```ts
 fs.unlinkSync("adat.txt");
@@ -204,7 +204,7 @@ fs.unlinkSync("adat.txt");
 
 ---
 
-### Könyvtár létrehozása
+### 10.2 Könyvtár létrehozása
 
 ```ts
 fs.mkdirSync("ujmappa");
@@ -212,7 +212,7 @@ fs.mkdirSync("ujmappa");
 
 ---
 
-### Könyvtár tartalmának listázása
+### 10.3 Könyvtár tartalmának listázása
 
 ```ts
 const fajlok = fs.readdirSync("./");

@@ -239,7 +239,7 @@ const kiíráshoz: string = mátrixSzöveg.map((sor) => sor.join(" ")).join("\n"
 Mátrix feltöltése állományból (matrix.txt)
 
 ```ts
-    const adatsorok: string[] = fs.readFileSync("matrix.txt", "utf8").split("\n").map((s) => s.trim());
+    const adatsorok: string[] = fs.readFileSync("matrix.txt", "utf-8").split("\n").map((s) => s.trim());
     while (adatsorok.at(-1)?.length === 0) adatsorok.pop(); // üres adatsorok törlése
 
     for (let sor = 0; sor < adatsorok.length; sor++) {

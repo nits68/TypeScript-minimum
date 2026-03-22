@@ -195,7 +195,6 @@ let egyedi = [...new Set(szamok)]; // [1, 2, 3, 4]
 
 ```
 
-// Mátrix:
 
 ## 6️⃣ Mátrix (kétdimenziós tömb)
 
@@ -269,9 +268,10 @@ enum Irany {
     Nyugat  // 3
 }
 
-let mozgus: Irany = Irany.Eszak;
+let mozgás: Irany = Irany.Eszak;
 
-if (mozgus === Irany.Eszak) {
+console.log(Irany.Eszak); // 0
+if (mozgás === Irany.Eszak) {
     console.log("Észak felé megyünk");
 }
 

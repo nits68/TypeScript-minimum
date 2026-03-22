@@ -195,9 +195,67 @@ let egyedi = [...new Set(szamok)]; // [1, 2, 3, 4]
 
 ```
 
+// Mátrix:
+
+## 6️⃣ Mátrix (kétdimenziós tömb)
+
+Ninics dedikált kétdimenziós tömb, a mátrixot tömb típusú tömbként tudjuk megvalósítani<br>
+(pl.: szám típusú tömböket tartalmazó tömb)
+
+```ts
+    const matrixSzám: number[][] = [
+      [3, 5, 6, 3],
+      [5, 9, 0, 4],
+      [4, 7, 8, 9],
+    ];
+```
+
+Mátrixok deklarálása és inicializálása üres tömbbel
+
+```ts
+const mátrixSzöveg: string[][] = [];
+const mátrixSzám: number[][] = [];
+const mátrixLogikai: boolean[][] = [];
+```
+
+Mátrix feltöltése azonos (pl.: "#") értékekkel
+
+```ts
+const sorokSzáma: number = 5;
+const oszlopokSzáma: number = 8;
+ while (mátrixSzöveg.length < sorokSzáma) {
+      matrixSzöveg.push(new Array<string>(oszlopokSzáma).fill("#"));
+ }
+
+ // vagy deklarálása és inicializálása egy lépésben:
+const mátrixSzöveg: string[][] = Array.from({ length: sorokSzáma }, () => Array(oszlopokSzáma).fill("#"));
+```
+
+Mátrix kiírásához több soros szöveg készítése
+
+```ts
+const kiíráshoz: string = mátrixSzöveg.map((sor) => sor.join(" ")).join("\n");
+```
+
+Mátrix feltöltése állományból (matrix.txt)
+
+```ts
+    const adatsorok: string[] = fs.readFileSync("matrix.txt", "utf8").split("\n").map((s) => s.trim());
+    while (adatsorok.at(-1)?.length === 0) adatsorok.pop(); // üres adatsorok törlése
+
+    for (let sor = 0; sor < adatsorok.length; sor++) {
+      const aktuálisSor: number[] = []; // Létrehozunk egy üres sort
+      for (let oszlop = 0; oszlop < adatsorok[sor].length; oszlop++) {
+        aktuálisSor.push(Number(adatsorok[sor][oszlop])); // konvertálni kell!
+      }
+      mátrixSzám.push(aktuálisSor); // A feltöltött adatsort hozzáadjuk a mátrixhoz
+    }
+```
+
+
 ---
 
-## 6️⃣ Enum (Felsorolás)
+## 7️⃣ Enum (Felsorolás)
 
 Konstans értékek definiálása, hogy a kód olvashatóbb (tisztább) legyen.
 
@@ -232,22 +290,7 @@ console.log(Statusz.Hiba); // "ERROR"
 
 ---
 
-## 7️⃣ Union Type (Unió típus)
-
-Akkor használjuk, ha egy változó több típusú értéket is felvehet.
-
-### Példa
-
-```ts
-let azonosito: string | number;
-
-azonosito = 123;      // OK
-azonosito = "A-123";  // OK
-azonosito = true;  // HIBA
-
-```
-
-### Literal Type (Konkrét értékek)
+## 8️⃣ Literal Type (Konkrét értékek)
 
 ```ts
 // Csak ez a három szöveg fogadható el
@@ -259,7 +302,7 @@ let lampa: Lampaszin = "piros";
 ```
 ---
 
-## 8️⃣ A length és a size tulajdonság
+##  A length és a size tulajdonság
 Gyakori hiba a `.length` és `.size` összekeverése.
 
 A szabály: a hagyományos, indexelhető típusoknál length, a modern kollekcióknál (Set, Map) size tulajdonság van.

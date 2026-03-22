@@ -1,6 +1,6 @@
 # TypeScript -- Egyszerű (primitív) adattípusok és értékek
 
-## 1. number
+## 1️⃣. number
 
 Numerikus típus (egész és lebegőpontos is)
 
@@ -11,7 +11,7 @@ let pi: number = 3.14;
 
 ---
 
-## 2. string
+## 2️⃣. string
 
 Szöveges típus
 
@@ -22,7 +22,7 @@ let uzenet: string = `Szia ${nev}!`; // Template string
 
 ---
 
-## 3. boolean
+## 3️⃣. boolean
 
 Logikai típus (lehetséges érték **true**, vagy **false**)
 
@@ -33,7 +33,7 @@ let kesz: boolean = false;
 
 ---
 
-## 4. null (érték is)
+## 4️⃣. null (típus és érték is)
 
 tudatosan „nincs érték", vagy nincs még referencia (memória cím) összetett típusoknál
 
@@ -43,7 +43,7 @@ let adat: null = null;
 
 ---
 
-## 5. undefined (érték is)
+## 5️⃣. undefined (érték is)
 
 Nincs inicializálva
 
@@ -53,7 +53,7 @@ let valami: undefined = undefined;
 
 ---
 
-## 6. bigint
+## 6️⃣. bigint
 
 Nagy egész számokhoz
 
@@ -63,29 +63,29 @@ let nagy: bigint = 9007199254740991n;
 
 ---
 
+## 7️⃣. Union Type (Unió típus)
 
-# Az unió típus (nem primitív, de fontos)
+Akkor használjuk, ha egy változó több típusú értéket is felvehet.
 
-## string \| number
+### Példa
 
-``` ts
-let azonosito: string | number = 123;
-azonosito = "ABC123";
+```ts
+let azonosito: string | number;
+
+azonosito = 123;      // OK
+azonosito = "A-123";  // OK
+azonosito = true;  // HIBA
+
 ```
 
 
-A `NaN` (Not-a-Number) a TypeScriptben (és JavaScriptben) egy speciális érték, nem pedig önálló adattípus. Technikailag a `number` típushoz tartozik, de azt jelzi, hogy egy matematikai művelet eredménye nem értelmezhető számként.
-
-Itt van a `NaN` összefoglalója az általad kedvelt formátumban:
-
-
-# A NaN (Not-a-Number) érték (nem típus, a NaN típusa number)
+## 8️⃣. A NaN (Not-a-Number) érték (nem típus, a NaN típusa: number)
 
 A `NaN` jelentése **"Nem Szám"**, de ironikus módon a nyelvben ez egy `number` típusú speciális érték. Akkor kapjuk, ha egy matematikai műveletet nem lehet elvégezni.
 
 ---
 
-## 1️⃣ Mikor keletkezik NaN?
+### 8.1 Mikor keletkezik NaN?
 
 Tipikus esetek, amikor `NaN` lesz az eredmény:
 
@@ -106,7 +106,7 @@ let gyok: number = Math.sqrt(-1); // NaN
 
 ---
 
-## 2️⃣ A "NaN csapda" (Összehasonlítás)
+### 8.2 A "NaN csapda" (Összehasonlítás)
 
 A `NaN` a programozás egyik legfurcsább értéke: **nem egyenlő saját magával sem!**
 
@@ -124,7 +124,7 @@ if (ertek === NaN) {
 
 ---
 
-## 3️⃣ Hogyan ellenőrizzük helyesen?
+### 8.3 Hogyan ellenőrizzük helyesen?
 
 Mivel az `===` nem működik, a beépített segédfüggvényeket kell használni.
 

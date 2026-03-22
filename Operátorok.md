@@ -137,14 +137,14 @@ console.log(i); // 5
 
 ---
 
-## 6️⃣ Ternáris operátor (feltételes)
+## 6️⃣ Ternáris operátor `?:` (feltételes)
 
-Rövid if-else szerkezet.
+Rövid if-else szerkezet, egyetlen három operandusú operátor.
 
 ### Szintaxis
 
 ```ts
-feltétel ? érték1 : érték2
+feltétel ? érték_ha_a_feltétel_igaz : érték_ha_a_feltétel_hamis
 ```
 
 ### Példa
@@ -154,13 +154,13 @@ let kor: number = 18;
 
 let uzenet: string = kor >= 18 ? "Felnőtt" : "Kiskorú";
 
-console.log(uzenet);
+console.log(uzenet); // "Felnőtt"
 ```
 
 
 ## 7️⃣ Speciális operátorok
 
-### 7.1 A dupla tagadás (`!!`) operátor
+### 7.1 A dupla tagadás `!!` operátor
 
 Ha bármilyen értéket valódi `boolean` típussá (true/false) akarsz alakítani, használd a `!!` jelet.
 
@@ -304,7 +304,7 @@ console.log(user.nev); // Béla
 
 ---
 
-### 7.7 Az `typeof` operátor
+### 7.7 A `typeof` operátor
 
 Egy változó típusát adja vissza (stringként).
 

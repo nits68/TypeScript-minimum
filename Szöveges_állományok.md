@@ -1,8 +1,3 @@
-Természetesen 🙂
-Az alábbi md formátumú jegyzet **ugyanabban a stílusban** készült, mint a mintád.
-
----
-
 # TypeScript – Szöveges állományok írása és olvasása (Node.js)
 
 > ⚠️ Fontos: Fájlkezeléshez **Node.js környezet** szükséges (böngészőben NEM fut).

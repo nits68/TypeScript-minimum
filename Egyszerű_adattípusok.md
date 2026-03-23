@@ -1,23 +1,24 @@
-# TypeScript -- Egyszerű (primitív) adattípusok és értékek
+# TypeScript -- Egyszerű (primitív) adattípusok és literálok
 
 ## 1️⃣. number
 
-Numerikus típus (egész és lebegőpontos is)
+Numerikus típus (egész és lebegőpontos is)<br>
+A JS/TS minden számot lebegőpontos módszerrel tárol (pazarlás)
 
 ``` ts
 let kor: number = 18;
-let pi: number = 3.14;
+let pi: number = 3.14; // 3.14 -> numerikus literál
 ```
 
 ---
 
 ## 2️⃣. string
 
-Szöveges típus
+Szöveges típus karakterek és karakterláncok tárolására
 
 ``` ts
 let nev: string = "Anna";
-let uzenet: string = `Szia ${nev}!`; // Template string
+let uzenet: string = `Szia ${nev}!`; // Template string literál
 ```
 
 ---
@@ -43,7 +44,7 @@ let adat: null = null;
 
 ---
 
-## 5️⃣. undefined (érték is)
+## 5️⃣. undefined (típus és érték is)
 
 Nincs inicializálva
 
@@ -65,7 +66,7 @@ let nagy: bigint = 9007199254740991n;
 
 ## 7️⃣. Union Type (Unió típus)
 
-Akkor használjuk, ha egy változó több típusú értéket is felvehet.
+Akkor használjuk, ha egy változó különböző típusú értékeket is felvehet.
 
 ### Példa
 
@@ -79,9 +80,10 @@ azonosito = true;  // HIBA
 ```
 
 
-## 8️⃣. A NaN (Not-a-Number) érték (nem típus, a NaN típusa: number)
+## 8️⃣. A NaN (Not-a-Number) speciális érték (nem típus, a NaN típusa: number)
 
-A `NaN` jelentése **"Nem Szám"**, de ironikus módon a nyelvben ez egy `number` típusú speciális érték. Akkor kapjuk, ha egy matematikai műveletet nem lehet elvégezni.
+A `NaN` jelentése **"Nem Szám"**, de ironikus módon a JS/TS-ben ez egy `number` típusú speciális érték.<br>
+Akkor kapjuk, ha egy matematikai műveletet nem lehet elvégezni.
 
 ---
 
@@ -140,7 +142,7 @@ if (Number.isNaN(ertek)) {
 
 ```
 
-> **Tipp:** Létezik egy globális `isNaN()` függvény is, de a `Number.isNaN()` szigorúbb és biztonságosabb TypeScriptben.
+> **Tipp:** Létezik egy globális `isNaN()` függvény is, de a `Number.isNaN()` szigorúbb és biztonságosabb TS-ben.
 
 ---
 

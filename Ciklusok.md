@@ -1,15 +1,16 @@
 
 # TypeScript - Ciklusok (iteráció)
 
-## 1️⃣ for ciklus (számlálós)
+## 1️⃣ for ciklus (számláló vezérelt)
 
-Ez a leggyakrabban használt ciklus, ha előre tudjuk, hányszor kell lefuttatni a kódot.
+Ez a leggyakrabban használt ciklus, ha előre tudjuk, hányszor kell lefuttatni a kódot,<br>
+vagy egy összetett adatszerkezet bejárásakor szükségünk van az indexekre.
 
 ### Alap szintaxis
 
 ```ts
 for (kezdeti_érték; feltétel; léptetés) {
-    // kód, ami ismétlődik
+    // Ciklusmag (CM): kód, ami ismétlődik
 }
 
 ```
@@ -18,16 +19,18 @@ for (kezdeti_érték; feltétel; léptetés) {
 
 ```ts
 for (let i: number = 0; i < 5; i++) {
-    console.log("A számláló értéke: " + i);
+    console.log(`A számláló értéke:  ${i}`);
 }
 
 ```
 
 ---
 
-## 2️⃣ while ciklus (elöltesztelős)
+## 2️⃣ while ciklus (elöltesztelő ciklus)
 
-Akkor használjuk, ha nem tudjuk előre a lépések számát, csak egy feltételhez kötjük a futást. Először ellenőrzi a feltételt, és csak utána fut le.
+Akkor használjuk, ha nem tudjuk előre a lépések számát, csak egy feltételhez kötjük a futást.<br>
+Először ellenőrzi a feltételt, és csak utána fut le.<br>
+Lehet olyan eset, hogy a ciklusmag egyszer sem fut le.
 
 ### Alap szintaxis
 
@@ -52,9 +55,9 @@ while (szamlalo > 0) {
 
 ---
 
-## 3️⃣ do-while ciklus (hátultesztelős)
+## 3️⃣ do-while ciklus (hátultesztelő ciklus)
 
-Hasonlít a while ciklushoz, de ez **legalább egyszer mindenképpen lefut**, mivel a feltételt a ciklusmag után ellenőrzi.
+Hasonlít a while ciklushoz, de itt a ciklusmag ** egyszer mindenképpen lefut**, mivel a feltételt a ciklusmag után ellenőrzi.
 
 ### Alap szintaxis
 
@@ -79,9 +82,10 @@ do {
 
 ---
 
-## 4️⃣ for-of ciklus (érték szerinti bejárás)
+## 4️⃣ for-of ciklus (érték szerinti bejárás, C# foreach)
 
-Modern és kényelmes megoldás tömbök (vagy más iterálható objektumok) elemeinek bejárására. Az **értékeket** adja vissza. Akkor használjuk jellemzően, ha nincs szükség az indexek értékeire.
+Modern és kényelmes megoldás tömbök (vagy más iterálható objektumok) elemeinek bejárására.<br>
+Az **értékeket** adja vissza. Akkor használjuk jellemzően, ha nincs szükség az indexek értékeire.
 
 ### Alap szintaxis
 
@@ -167,7 +171,7 @@ for (let i: number = 0; i < 5; i++) {
 
 ## 7️⃣ `forEach()` metódus (tömbök bejárása)
 
-A `forEach()` egy tömbmetódus, amely végigmegy a tömb minden elemén, és egy megadott függvényt hajt végre rajtuk.
+A `forEach()` egy tömb-metódus, amely végigmegy a tömb minden elemén, és egy megadott függvényt hajt végre rajtuk.
 
 Ez **nem klasszikus ciklus**, hanem egy **metódus**, amely egy **callback függvényt** kap paraméterként.
 

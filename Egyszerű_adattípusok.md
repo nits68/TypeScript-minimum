@@ -1,6 +1,6 @@
 # TypeScript -- Egyszerű (primitív) adattípusok és literálok
 
-## 1️⃣. number
+## 1️⃣. Numerikus típus (number)
 
 Numerikus típus (egész és lebegőpontos is)<br>
 A JS/TS minden számot lebegőpontos módszerrel tárol (pazarlás)
@@ -12,7 +12,7 @@ let pi: number = 3.14; // 3.14 -> numerikus literál
 
 ---
 
-## 2️⃣. string
+## 2️⃣. Szöveges típus (string)
 
 Szöveges típus karakterek és karakterláncok tárolására
 
@@ -23,7 +23,7 @@ let uzenet: string = `Szia ${nev}!`; // Template string literál
 
 ---
 
-## 3️⃣. boolean
+## 3️⃣. Logikai típus (boolean)
 
 Logikai típus (lehetséges érték **true**, vagy **false**)
 
@@ -32,39 +32,10 @@ let aktiv: boolean = true;
 let kesz: boolean = false;
 ```
 
----
-
-## 4️⃣. null (típus és érték is)
-
-tudatosan „nincs érték", vagy nincs még referencia (memória cím) összetett típusoknál
-
-``` ts
-let adat: null = null;
-```
 
 ---
 
-## 5️⃣. undefined (típus és érték is)
-
-Nincs inicializálva
-
-``` ts
-let valami: undefined = undefined;
-```
-
----
-
-## 6️⃣. bigint
-
-Nagy egész számokhoz
-
-``` ts
-let nagy: bigint = 9007199254740991n;
-```
-
----
-
-## 7️⃣. Union Type (Unió típus)
+## 4️⃣. Union Type (Unió típus)
 
 Akkor használjuk, ha egy változó különböző típusú értékeket is felvehet.
 
@@ -78,6 +49,38 @@ azonosito = "A-123";  // OK
 azonosito = true;  // HIBA
 
 ```
+
+---
+
+## 5️⃣. null (típus és érték is)
+
+A nincs még referencia (összetett típusoknál a referencia a memóraicímet jelenti, ahol az adatokat tároljuk) állapot jelzésére.
+
+``` ts
+const player: Player | null = null;
+```
+
+---
+
+## 6️⃣. undefined (típus és érték is)
+
+Nincs inicializálva állapot jelzésére.
+
+``` ts
+let valami: szám | undefined = undefined;
+```
+
+---
+
+## 7️⃣. bigint
+
+Nagy egész számokhoz
+
+``` ts
+let nagy: bigint = 9007199254740991n;
+```
+
+
 
 
 ## 8️⃣. A NaN (Not-a-Number) speciális érték (nem típus, a NaN típusa: number)
@@ -146,7 +149,7 @@ if (Number.isNaN(ertek)) {
 
 ---
 
-## 4️⃣ Típus info - typeof operátor
+## 9️⃣ Típus info - typeof operátor
 
 Bár a neve "Nem Szám", a típusa mégis szám.
 
@@ -159,9 +162,9 @@ Ezért, ha egy változó típusa `number`, az még nem garancia arra, hogy való
 
 ---
 
-## 5️⃣ Hasznos trükk (Alapértelmezett érték)
+## 🔟 Hasznos trükk (Alapértelmezett érték)
 
-Ha egy művelet eredménye `NaN` lehet, használhatjuk a `||` (vagy) operátort, hogy helyette 0-t vagy más értéket kapjunk.
+Ha egy művelet eredménye `NaN` lehet, használhatjuk a `||` (OR) operátort, vagy a `??` (nulla összevonás) operátort, hogy helyette 0-t vagy más értéket kapjunk.
 
 ```ts
 let bemenet = parseInt("korte"); // NaN lenne

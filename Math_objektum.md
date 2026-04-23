@@ -120,6 +120,11 @@ let randomSzam: number = Math.floor(Math.random() * 90) + 10;
 console.log(randomSzam);
 ```
 
+### Angol ABC véletlen nagybetűje
+```ts
+let randomABC: string = String.fromCharCode(65 + Math.floor(Math.random() * 26))
+```
+
 ---
 
 ## 6️⃣ Trigonometriai függvények

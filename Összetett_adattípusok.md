@@ -155,10 +155,16 @@ if (raktar.has("Szilva")) {
 }
 raktar.delete("Körte");
 
-// Szótár bejárása for-of ciklussal
+// Szótár bejárása for-of ciklussal, kulcs és érték ciklusváltozókkal
 for (const [kulcs, érték] of stat) {
     vissza += `${kulcs} pálinka ${érték} liter\n`;
   }
+
+// Szótárban lévő kulcsok tömbje:
+this.stat.keys().toArray();
+
+// Szótárban lévő értékek tömbje:
+this.stat.values().toArray();
 ```
 
 ---

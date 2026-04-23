@@ -1,15 +1,16 @@
 
 # TypeScript - Ciklusok (iteráció)
+Az iteráció egy olyan vezérlési szerkezet, ami egy vagy több utasítást ismétel.
 
 ## 1️⃣ for ciklus (számláló vezérelt)
 
-Ez a leggyakrabban használt ciklus, ha előre tudjuk, hányszor kell lefuttatni a kódot,<br>
-vagy egy összetett adatszerkezet bejárásakor szükségünk van az indexekre.
+Akkor hasznljuk, ha előre tudjuk, hogy hányszor kell ismételni a kódot,<br>
+vagy egy összetett adatszerkezet bejárásakor szükségünk van az elemek indexeire.
 
 ### Alap szintaxis
 
 ```ts
-for (kezdeti_érték; feltétel; léptetés) {
+for (kezdeti_érték; ciklusfeltétel; léptetés) {
     // Ciklusmag (CM): kód, ami ismétlődik
 }
 
@@ -18,8 +19,8 @@ for (kezdeti_érték; feltétel; léptetés) {
 ### Példa
 
 ```ts
-for (let i: number = 0; i < 5; i++) {
-    console.log(`A számláló értéke:  ${i}`);
+for (let counter: number = 0; counter < 5; counter++) {
+    console.log(`A számláló értéke:  ${counter}`);
 }
 
 ```
@@ -29,14 +30,14 @@ for (let i: number = 0; i < 5; i++) {
 ## 2️⃣ while ciklus (elöltesztelő ciklus)
 
 Akkor használjuk, ha nem tudjuk előre a lépések számát, csak egy feltételhez kötjük a futást.<br>
-Először ellenőrzi a feltételt, és csak utána fut le.<br>
+Először ellenőrzi a feltételt, és csak utána fut le ha ciklusfeltétel igaz.<br>
 Lehet olyan eset, hogy a ciklusmag egyszer sem fut le.
 
 ### Alap szintaxis
 
 ```ts
-while (feltétel) {
-    // kód, ami addig ismétlődik, amíg a feltétel igaz
+while (ciklusfeltétel) {
+    // kód, ami addig ismétlődik, amíg a ciklusfeltétel igaz értékű
 }
 
 ```
@@ -57,14 +58,14 @@ while (szamlalo > 0) {
 
 ## 3️⃣ do-while ciklus (hátultesztelő ciklus)
 
-Hasonlít a while ciklushoz, de itt a ciklusmag ** egyszer mindenképpen lefut**, mivel a feltételt a ciklusmag után ellenőrzi.
+Hasonlít a while ciklushoz, de itt a ciklusmag ** egyszer mindenképpen lefut**, mivel a ciklusfeltételt a ciklusmag után ellenőrzi.
 
 ### Alap szintaxis
 
 ```ts
 do {
     // ez egyszer mindenképp lefut
-} while (feltétel);
+} while (ciklusfeltétel);
 
 ```
 
@@ -85,7 +86,7 @@ do {
 ## 4️⃣ for-of ciklus (érték szerinti bejárás, C# foreach)
 
 Modern és kényelmes megoldás tömbök (vagy más iterálható objektumok) elemeinek bejárására.<br>
-Az **értékeket** adja vissza. Akkor használjuk jellemzően, ha nincs szükség az indexek értékeire.
+A ciklus változója az **értékeket** veszi fel a tömbből. Akkor használjuk jellemzően, ha nincs szükség az indexek értékeire.
 
 ### Alap szintaxis
 
@@ -156,7 +157,7 @@ for (let i: number = 0; i < 10; i++) {
 
 ### continue (következő iteráció)
 
-Kihagyja a jelenlegi kört, és ugrik a következőre.
+Kihagyja a jelenlegi "kört", és ugrik a következőre.
 
 ```ts
 for (let i: number = 0; i < 5; i++) {
@@ -169,7 +170,7 @@ for (let i: number = 0; i < 5; i++) {
 ```
 
 
-## 7️⃣ `forEach()` metódus (tömbök bejárása)
+## 7️⃣ `forEach()` metódus (tömbök bejárása, nem ciklus!)
 
 A `forEach()` egy tömb-metódus, amely végigmegy a tömb minden elemén, és egy megadott függvényt hajt végre rajtuk.
 
@@ -184,7 +185,7 @@ tomb.forEach((elem[, index]) => {
 ```
 
 * `elem` – az aktuális elem értéke
-* `index` – az aktuális elem indexe (nem elhagyható)
+* `index` – az aktuális elem indexe (elhagyható)
 
 ---
 
@@ -255,11 +256,8 @@ A `forEach()` akkor jó választás, ha:
 * **nem kell megszakítani** a bejárást
 * nincs szükség bonyolult vezérlésre
 
-Ha **meg kell szakítani a ciklust**, akkor inkább:
+Ha **meg kell szakítani a ciklust**, akkor inkább használd:
 
 * `for`
 * `for-of`
-
-ciklust érdemes használni.
-
 ---

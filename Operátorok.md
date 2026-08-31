@@ -1,9 +1,3 @@
-Örömmel kiegészítem az állományodat\! A kért operátorokat logikusan beillesztettem a struktúrádba: a bitenkénti operátorok egy új, önálló főszekciót kaptak, míg a többi a „Speciális operátorok” közé került, folytatva a számozást.
-
-Íme a teljes, frissített Markdown tartalom, amit egy az egyben bemásolhatsz a fájlodba:
-
------
-
 # TypeScript – Operátorok (Operators)
 
 Az operátorok segítségével műveleteket végezhetünk változókon és értékeken.

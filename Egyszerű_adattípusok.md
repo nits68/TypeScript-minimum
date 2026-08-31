@@ -57,6 +57,10 @@ azonosito = true;  // HIBA
 A nincs még referencia (összetett típusoknál a referencia a memóraicímet jelenti, ahol az adatokat tároljuk) állapot jelzésére.
 
 ``` ts
+interface Player {
+    nev: string;
+}
+
 const player: Player | null = null;
 ```
 
@@ -67,7 +71,7 @@ const player: Player | null = null;
 Nincs inicializálva állapot jelzésére.
 
 ``` ts
-let valami: szám | undefined = undefined;
+let valami: number | undefined = undefined;
 ```
 
 ---

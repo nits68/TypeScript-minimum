@@ -4,7 +4,7 @@ Az iteráció egy olyan vezérlési szerkezet, ami egy vagy több utasítást is
 
 ## 1️⃣ for ciklus (számláló vezérelt)
 
-Akkor hasznljuk, ha előre tudjuk, hogy hányszor kell ismételni a kódot,<br>
+Akkor használjuk, ha előre tudjuk, hogy hányszor kell ismételni a kódot,<br>
 vagy egy összetett adatszerkezet bejárásakor szükségünk van az elemek indexeire.
 
 ### Alap szintaxis

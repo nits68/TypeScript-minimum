@@ -21,8 +21,6 @@ let ures: number[] = [];
 nevek.push("Dénes"); 
 
 // Bejárás klasszikus for ciklussal:
-let szamok: number[] = [10, 20, 30];
-
 for (let i = 0; i < szamok.length; i++) {
     console.log(i, szamok[i]);
 }
@@ -141,9 +139,9 @@ raktar.set("Körte", 50);
 console.log(raktar.get("Alma")); // 100
 
 // Típuskonverzió, ha biztosan van "Körte" kulcs a szótárban:
-const körteMennyisége: number = raktar.get("Körte") as number; // Mivel a get() visszatérhet undefined értékkel is
+const körte1: number = raktar.get("Körte") as number; // Mivel a get() visszatérhet undefined értékkel is
 // Vagy undefined esetén legyen nulla az érték:
-const körteMennyisége: number = raktar.get("Körte") ?? 0;
+const körte2: number = raktar.get("Körte") ?? 0;
 // A ?? (nullish coalescing operator) azt jelenti: 
 // ha a bal oldali érték null vagy undefined, akkor a jobb oldalt használja.
 // A || (logical OR) operátor is használható, 
@@ -156,15 +154,17 @@ if (raktar.has("Szilva")) {
 raktar.delete("Körte");
 
 // Szótár bejárása for-of ciklussal, kulcs és érték ciklusváltozókkal
+let vissza: string = "";
 for (const [kulcs, érték] of stat) {
     vissza += `${kulcs} pálinka ${érték} liter\n`;
-  }
+}
+console.log(vissza);
 
-// Szótárban lévő kulcsok tömbje:
-this.stat.keys().toArray();
+// Szótárban lévő kulcsok tömbje (ES2024+, csak újabb Node/TS lib esetén):
+stat.keys().toArray();
 
-// Szótárban lévő értékek tömbje:
-this.stat.values().toArray();
+// Szótárban lévő értékek tömbje (ES2024+, csak újabb Node/TS lib esetén):
+stat.values().toArray();
 ```
 
 ---
@@ -208,7 +208,7 @@ Ninics dedikált kétdimenziós tömb, a mátrixot tömb típusú tömbként tud
 (pl.: szám típusú tömböket tartalmazó tömb)
 
 ```ts
-    const matrixSzám: number[][] = [
+    const matrixSzam: number[][] = [
       [3, 5, 6, 3],
       [5, 9, 0, 4],
       [4, 7, 8, 9],
@@ -218,28 +218,28 @@ Ninics dedikált kétdimenziós tömb, a mátrixot tömb típusú tömbként tud
 Mátrixok deklarálása és inicializálása üres tömbbel
 
 ```ts
-const mátrixSzöveg: string[][] = [];
-const mátrixSzám: number[][] = [];
-const mátrixLogikai: boolean[][] = [];
+const matrixSzoveg: string[][] = [];
+const matrixSzam: number[][] = [];
+const matrixLogikai: boolean[][] = [];
 ```
 
 Mátrix feltöltése azonos (pl.: "#") értékekkel
 
 ```ts
-const sorokSzáma: number = 5;
-const oszlopokSzáma: number = 8;
- while (mátrixSzöveg.length < sorokSzáma) {
-      matrixSzöveg.push(new Array<string>(oszlopokSzáma).fill("#"));
- }
+const sorokSzama: number = 5;
+const oszlopokSzama: number = 8;
+while (matrixSzoveg.length < sorokSzama) {
+      matrixSzoveg.push(new Array<string>(oszlopokSzama).fill("#"));
+}
 
- // vagy deklarálása és inicializálása egy lépésben:
-const mátrixSzöveg: string[][] = Array.from({ length: sorokSzáma }, () => Array(oszlopokSzáma).fill("#"));
+// vagy deklarálása és inicializálása egy lépésben:
+const matrixSzoveg2: string[][] = Array.from({ length: sorokSzama }, () => Array(oszlopokSzama).fill("#"));
 ```
 
 Mátrix kiírásához több soros szöveg készítése
 
 ```ts
-const kiíráshoz: string = mátrixSzöveg.map((sor) => sor.join(" ")).join("\n");
+const kiíráshoz: string = matrixSzoveg.map((sor) => sor.join(" ")).join("\n");
 ```
 
 Mátrix feltöltése állományból (matrix.txt)
@@ -253,7 +253,7 @@ Mátrix feltöltése állományból (matrix.txt)
       for (let oszlop = 0; oszlop < adatsorok[sor].length; oszlop++) {
         aktuálisSor.push(Number(adatsorok[sor][oszlop])); // konvertálni kell!
       }
-      mátrixSzám.push(aktuálisSor); // A feltöltött adatsort hozzáadjuk a mátrixhoz
+      matrixSzam.push(aktuálisSor); // A feltöltött adatsort hozzáadjuk a mátrixhoz
     }
 ```
 

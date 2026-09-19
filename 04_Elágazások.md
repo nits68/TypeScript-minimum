@@ -73,26 +73,50 @@ if (jegy === 5) {
 }
 ```
 
+---
+
 ## 4️⃣ switch-case szerkezet
 
 ``` ts
 switch (kifejezés) {
-    case ertek1:
-        // kód, ha kifejezés == ertek1
+    case érték1:
+        // kód, ha kifejezés === érték1
         break;
-    case ertek2:
-        // kód, ha kifejezés == ertek2
+    case érték2:
+        // kód, ha kifejezés === érték2
         break;
     default:
         // ha egyikkel sem lesz egyenlő
 }
 ```
 
+### Példa
+
+``` ts
+let jegy: number = 4;
+
+switch (jegy) {
+    case 5:
+        console.log("Jeles");
+        break;
+    case 4:
+        console.log("Jó");
+        break;
+    case 3:
+        console.log("Közepes");
+        break;
+    default:
+        console.log("Elégtelen vagy elégséges");
+}
+```
+
+📌 A `break` elhagyása esetén a végrehajtás "átcsorog" a következő `case` ágra is (fall-through).
+
 ---
 
 ## 5️⃣ Igaz és hamis értékek
 
-TypeScriptben nem csak a `boolean` típusú változók kerülhetnek egy `if` feltételébe, vagy `ciklus` feltételbe. Minden értéknek van egy "igazságtartalma", amikor logikai környezetben használjuk őket.
+TypeScriptben nemcsak a `boolean` típusú változók kerülhetnek egy `if` vagy egy ciklus feltételébe. Minden értéknek van egy "igazságtartalma", amikor logikai környezetben használjuk azt.
 
 ### 🔴 False (Hamisnak értékelt) értékek
 

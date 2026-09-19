@@ -10,7 +10,7 @@ Háromféleképpen hozhatunk létre stringet literálok használatával:
 
 1. **Dupla idézőjel** (`"`)
 2. **Szimpla idézőjel** (`'`) - nincs funkcionális különbség a kettő között.
-3. **Backtick** (`) - Template Literal használatával
+3. **Backtick** (`` ` ``) - Template Literal használatával
 
 ### Alap szintaxis
 
@@ -22,7 +22,7 @@ let keresztNev: string = 'János';
 
 ### Template Literal (Interpoláció)
 
-A leghatékonyabb módszer változók beágyazására. Nem kell `+` jelekkel bajlódni.
+A leghatékonyabb módszer változók/kifejezések beágyazására. Nem kell `+` jelekkel bajlódni, kevesebb idézőjel.
 
 ```ts
 let kor: number = 25;
@@ -73,6 +73,7 @@ console.log(szo.charAt(1)); // "y"
 
 // Utolsó karakter elérése
 console.log(szo[szo.length - 1]); // "t"
+console.log(szo.at(-1)); // "t"
 
 ```
 
@@ -82,7 +83,7 @@ A stringek TypeScriptben (és JS-ben) **nem módosíthatók** index alapján. Ha
 
 ```ts
 let str = "alma";
-// str[0] = "b"; // HIBÁS! Ez nem működik, nem dob hibát, de nem is változtat.
+// str[0] = "b"; // HIBÁS! TypeScriptben fordítási hiba, futásidőben (strict módban) TypeError.
 
 str = "b" + str.slice(1); // Helyes: új értéket adunk a változónak ("blma")
 
@@ -99,7 +100,7 @@ Gyakran kell vizsgálni, hogy egy szöveg tartalmaz-e egy részletet.
 * `.includes()`: Tartalmazza-e? (true/false)
 * `.startsWith()`: Ezzel kezdődik? (true/false)
 * `.endsWith()`: Ezzel végződik? (true/false)
-* `.indexOf()`: Hányadik indexen kezdődik? (-1, ha nincs benne)
+* `.indexOf()`: Első előfordulás indexe (Hányadik indexen kezdődik?) (-1, ha nem található benne)
 * `.lastIndexOf()`: Utolsó előfordulás indexe (-1, ha nincs benne)
 
 ### Példa
@@ -152,7 +153,7 @@ let fajl: string = "kep_2024.png";
 // Az első 3 karakter
 console.log(fajl.slice(0, 3)); // "kep"
 
-// A 4. karaktertől a végéig
+// A 4. indextől (az 5. karaktertől) a végéig
 console.log(fajl.slice(4));    // "2024.png"
 
 // Hátulról számolva (az utolsó 4 karakter)

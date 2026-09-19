@@ -144,7 +144,7 @@ console.log(typeof null);      // "object"  <- ez egy régi, javítatlanul hagyo
 console.log(typeof undefined); // "undefined"
 ```
 
-A `typeof null === "object"` history-hiba a JavaScript első verziójából ered, és a visszafelé kompatibilitás miatt máig sem javították ki. **Emiatt a `typeof` NEM alkalmas `null` ellenőrzésére** – helyette mindig a szigorú egyenlőség (`=== null`) használandó.
+A `typeof null === "object"` a JavaScript első verziójából örökölt hiba, és a visszafelé kompatibilitás miatt máig sem javították ki. **Emiatt a `typeof` NEM alkalmas `null` ellenőrzésére** – helyette mindig a szigorú egyenlőség (`=== null`) használandó.
 
 ### Egyenlőség-vizsgálat: `==` vs `===`
 
@@ -153,7 +153,7 @@ console.log(null == undefined);   // true  (a == laza összehasonlítás egyené
 console.log(null === undefined);  // false (a === szigorú összehasonlítás megkülönbözteti a típusukat is)
 ```
 
-📌 Éppen ezért kényelmes és biztonságos a **`??` (nullish coalescing)** operátor, mert egyetlen feltétellel kezeli mindkét esetet – lásd [02_Operátorok.md](02_Operátorok.md) 7.2-es pontját:
+📌 Éppen ezért kényelmes és biztonságos a **`??` (null-egyesítő, nullish coalescing)** operátor, mert egyetlen feltétellel kezeli mindkét esetet – lásd [02_Operátorok.md](02_Operátorok.md) 7.2-es pontját:
 
 ```ts
 let ertek1: number | null = null;
@@ -173,8 +173,7 @@ Nagy egész számokhoz
 let nagy: bigint = 9007199254740991n;
 ```
 
-
-
+---
 
 ## 9️⃣. A NaN (Not-a-Number) speciális érték (nem típus, a NaN típusa: number)
 

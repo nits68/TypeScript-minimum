@@ -1,4 +1,4 @@
-# TypeScript – Operátorok (Operators)
+# TypeScript - Operátorok (Operators)
 
 Az operátorok segítségével műveleteket végezhetünk változókon és értékeken.
 
@@ -9,12 +9,12 @@ Az operátorok segítségével műveleteket végezhetünk változókon és ért�
 ### Operátorok
 
 ```ts
-+   // összeadás
--   // kivonás
-* // szorzás
-/   // osztás
-%   // maradék (modulo)
-** // hatványozás
+`+`   // összeadás
+`-`   // kivonás
+`*`   // szorzás
+`/`   // osztás
+`%`   // maradékos osztás (modulo)
+`**`  // hatványozás
 ```
 
 ### Példa
@@ -38,12 +38,12 @@ console.log(a ** b); // 1000
 ### Operátorok
 
 ```ts
-=    // értékadás
-+=   // növelés és értékadás
--=   // csökkentés és értékadás
-*=   // szorzás és értékadás
-/=   // osztás és értékadás
-%=   // maradék és értékadás
+`=`    // értékadás
+`+=`   // növelés és értékadás
+`-=`   // csökkentés és értékadás
+`*=`   // szorzás és értékadás
+`/=`   // osztás és értékadás
+`%=`   // maradék és értékadás
 ```
 
 ### Példa
@@ -65,14 +65,14 @@ console.log(x); // 16
 ### Operátorok
 
 ```ts
-==   // egyenlő (érték szerint, ha kell összehasonlítás előtt konvertál)
-===  // szigorúan egyenlő (érték + típus)
-!=   // nem egyenlő (érték szerint, ha kell összehasonlítás előtt konvertál)
-!==  // szigorúan nem egyenlő (érték + típus)
->    // nagyobb
-<    // kisebb
->=   // nagyobb vagy egyenlő
-<=   // kisebb vagy egyenlő
+`==`   // egyenlő (érték szerint, ha kell összehasonlítás előtt konvertál)
+`===`  // szigorúan egyenlő (érték + típus)
+`!=`   // nem egyenlő (érték szerint, ha kell összehasonlítás előtt konvertál)
+`!==`  // szigorúan nem egyenlő (érték + típus)
+`>`    // nagyobb
+`<`    // kisebb
+`>=`   // nagyobb vagy egyenlő
+`<=`   // kisebb vagy egyenlő
 ```
 
 ### Példa
@@ -81,9 +81,9 @@ console.log(x); // 16
 let a: number = 5;
 let b: number = 10;
 
-console.log(a == "5");   // true (nem ajánlott)
+console.log(a == "5");   // JS-ben true, de TS-ben FORDÍTÁSI HIBA (nincs típusátfedés)
 console.log(a === 5);    // true
-console.log(a === "5");  // false
+console.log(a === "5");  // JS-ben false, TS-ben szintén fordítási hiba
 
 console.log(a < b);      // true
 console.log(a >= b);     // false
@@ -96,9 +96,9 @@ console.log(a >= b);     // false
 ### Operátorok
 
 ```ts
-&&  // ÉS (AND)
-||  // VAGY (OR)
-!   // NEM (NOT)
+`&&`  // ÉS (AND)
+`||`  // VAGY (OR)
+`!`   // NEM (NOT)
 ```
 
 ### Példa
@@ -119,9 +119,9 @@ console.log(!vanJegy);           // false
 ### Operátorok
 
 ```ts
-++  // növelés 1-gyel
---  // csökkentés 1-gyel
-// állhat prefix és postfix pozícióban (lsd. példa)
+`++`  // növelés 1-gyel
+`--`  // csökkentés 1-gyel
+// állhat prefix (változó előtt) és postfix (változó után) pozícióban (lásd a példát)
 ```
 
 ### Példa
@@ -148,7 +148,7 @@ console.log(i); // 7
 
 ## 6️⃣ Feltételes operátor `?:` (ternáris)
 
-Egyetlen három operandusú operátor, röviden lehet if-else szerkezetet megvalósítani vele.
+Az egyetlen három operandusú operátor, amellyel röviden megvalósítható egy if-else szerkezet.<br>Reactban gyakran alkalmazzák.
 
 ### Szintaxis
 
@@ -180,7 +180,7 @@ console.log(!!0);       // false
 console.log(!!{});      // true
 ```
 
-### 7.2 Nullás összevonás `??` (nullish coalescing)
+### 7.2 Null-egyesítő `??` (nullish coalescing)
 
 Ez egy olyan alapértelmezett értéket biztosító operátor, amely visszaadja a jobb oldali operandust,<br>
 ha a bal oldali operandus szigorúan **null** vagy **undefined**.<br>
@@ -212,7 +212,7 @@ console.log(felhasznalo); // "Vendég" (Mivel a név undefined volt)
 ### 7.3 Opcionális láncolás `?.` (optional chaining)
 
 Segítségével úgy érhetünk el egy objektum mélyén lévő tulajdonságot, hogy nem kell ellenőrizni minden szinten (minden szülőt), hogy létezik-e a tulajdonság (adat).<br>
-Ha valami hiányzik, nem dob hibát (Error), hanem `undefined`-et ad vissza.
+Ha valami hiányzik, nem dob hibát (Error), hanem `undefined`-ot ad vissza.
 
 **Példa:**
 
@@ -235,13 +235,13 @@ console.log(kocsi.tulaj?.cim?.varos);
 // undefined lesz (Nem dob hibát a végrehajtás!)
 ```
 
-### 7.4. A spread `...` (Spread / Rest - kibontás és maradék paraméter)
+### 7.4 A spread `...` (Spread / Rest - kibontás és maradék paraméter)
 
 A három pontnak kétféle felhasználása van attól függően, hol használjuk.
 
 #### 7.4.1 Spread (Kibontás)
 
-Tömbök vagy objektumok tartalmát "szétteríti", másolja.
+Tömbök vagy objektumok tartalmát "szétteríti", másolja. Reactban gyakran használjuk, mert új tömb (új referencia) keletkezik.
 
 ```ts
 let gyumolcsok1 = ["Alma", "Körte"];
@@ -253,10 +253,12 @@ let osszesGyumolcs = [...gyumolcsok1, ...gyumolcsok2, "Dinnye"];
 console.log(osszesGyumolcs); 
 // ["Alma", "Körte", "Szilva", "Barack", "Dinnye"]
 
-// Objektum másolása és bővítése
+// Objektum másolása, mezőérték módosítás, vagy új mező-érték páros hozzáadása
 let user = { nev: "Péter", kor: 30 };
-let userUpdate = { ...user, varos: "Budapest" }; 
+let userUpdate = { ...user, varos: "Budapest" }; // Város mező hozzáadása
 // { nev: "Péter", kor: 30, varos: "Budapest" }
+let userUpdate2 = { ...userUpdate, varos: "Győr" }; // Meglévő mező módosítása
+// { nev: "Péter", kor: 30, varos: "Győr" }
 
 // Maximum meghatározása
 const maximum = Math.max(...szamok); 
@@ -331,7 +333,7 @@ console.log(a1 instanceof Auto); // true
 
 ### 7.9 Az `as` operátor (type assertion)
 
-Típus kényszerítése TypeScript-ben. Azt mondjuk a fordítónak: "Tudom, mit csinálok, kezeld ezt a változót ilyen típusként".
+Típus kényszerítése TypeScriptben. Azt mondjuk a fordítónak: "Tudom, mit csinálok, kezeld ezt a változót ilyen típusként".
 
 ```ts
 let ertek: unknown = "Hello";
@@ -341,7 +343,7 @@ let hossz: number = (ertek as string).length;
 console.log(hossz); // 5
 ```
 
-### 7.10 Nem-null állítás `!.` (non-null assertion)
+### 7.10 Nem-null állítás `!` (non-null assertion)
 
 Azt üzenjük vele a TypeScript fordítónak, hogy biztosak vagyunk benne: a változó értéke az adott pillanatban **nem lehet** `null` vagy `undefined`.
 
@@ -356,12 +358,12 @@ console.log(karakterekSzama); // 4
 
 ### 7.11 A `delete` operátor
 
-Töröl egy tulajdonságot egy objektumból. (TypeScriptben ehhez a tulajdonságnak általában opcionálisnak kell lennie).
+Töröl egy tulajdonságot (mezőt) egy objektumból. (TypeScriptben ehhez a tulajdonságnak opcionálisnak kell lennie).
 
 ```ts
 interface Adat {
     id: number;
-    titkos?: string; // Opcionális, így törölhető
+    titkos?: string; // Opcionális mező, így törölhető
 }
 
 let csomag: Adat = { id: 1, titkos: "jelszo123" };
@@ -370,7 +372,7 @@ delete csomag.titkos;
 console.log(csomag); // { id: 1 }
 ```
 
-### 7.12 A `void` operátor
+### 7.12 A `void` operátor (nem kell)
 
 Kiértékel egy kifejezést, majd eldobja az eredményt és `undefined`-ot ad vissza. Régebben vagy speciális esetekben (pl. hiperhivatkozásoknál az oldalon való ugrás megakadályozására) használták.
 
@@ -380,7 +382,7 @@ let eredmeny = void (2 + 2);
 console.log(eredmeny); // undefined
 ```
 
-### 7.13 A `keyof` operátor
+### 7.13 A `keyof` operátor (nem kell)
 
 Típus-szintű operátor. Segítségével kinyerhetjük egy objektum típusának kulcsait, és csinálhatunk belőlük egy unió (union) típust.
 
@@ -394,7 +396,7 @@ let property: KutyusKulcsok = "fajta"; // Helyes
 // let rosszProperty: KutyusKulcsok = "szin"; // Hiba! A "szin" nem létezik a Kutyusban
 ```
 
-### 7.14 A `satisfies` operátor (TS 4.9+)
+### 7.14 A `satisfies` operátor (TS 4.9+) (nem kell)
 
 Ellenőrzi, hogy egy kifejezés megfelel-e egy adott típusnak, anélkül, hogy a változó elveszítené a legpontosabb, specifikus típusát.
 
@@ -408,20 +410,20 @@ let myColor = "piros" satisfies Szinek;
 
 -----
 
-## 8️⃣ Bitenkénti operátorok (Bitwise)
+## 8️⃣ Bitenkénti operátorok (Bitwise) (nem kell)
 
-Ezek az operátorok a számokat 32 bites bináris (0 és 1) formában kezelik, és bit-szinten végeznek rajtuk műveleteket. A mindennapi fejlesztés során (hacsak nem hardver-közeli dolgokat vagy specifikus algoritmusokat írsz) ritkán van rájuk szükség.
+Ezek az operátorok a számokat 32 bites bináris (0 és 1) formában kezelik, és bitszinten végeznek rajtuk műveleteket. A mindennapi fejlesztés során (hacsak nem hardver-közeli dolgokat vagy specifikus algoritmusokat írsz) ritkán van rájuk szükség.
 
 ### Operátorok
 
 ```ts
-&    // Bitenkénti ÉS (AND)
-|    // Bitenkénti VAGY (OR)
-^    // Bitenkénti KIZÁRÓ VAGY (XOR)
-~    // Bitenkénti TAGADÁS (NOT) - a bitek invertálása
-<<   // Eltolás balra (Left shift)
->>   // Eltolás jobbra (előjel megtartásával) (Right shift)
->>>  // Eltolás jobbra (előjel nélküli, nullával feltöltő) (Zero-fill right shift)
+`&`    // Bitenkénti ÉS (AND)
+`|`    // Bitenkénti VAGY (OR)
+`^`    // Bitenkénti KIZÁRÓ VAGY (XOR)
+`~`    // Bitenkénti TAGADÁS (NOT) - a bitek invertálása
+`<<`   // Eltolás balra (Left shift)
+`>>`   // Eltolás jobbra (előjel megtartásával) (Right shift)
+`>>>`  // Eltolás jobbra (előjel nélküli, nullával feltöltő) (Zero-fill right shift)
 ```
 
 ### Példa
@@ -442,7 +444,7 @@ console.log(a << 1); // 10 (Minden bit 1-gyel balra csúszik, ami szorzás 2-vel
 ## 🧠 Megjegyzés
 
   * `new`, `.`, `instanceof` → objektum-orientált használat
-  * `typeof`, `as`, `keyof`, `satisfies`, `!.` → típuskezelés és TypeScript specifikumok
+  * `typeof`, `as`, `keyof`, `satisfies`, `!` → típuskezelés és TypeScript-specifikumok
   * `??`, `?.` → biztonságos, modern kód
-  * `&`, `|`, `^` stb. → bináris, bit szintű operációk
+  * `&`, `|`, `^` stb. → bináris, bitszintű operációk
 

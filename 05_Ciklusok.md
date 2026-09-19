@@ -20,7 +20,7 @@ for (kezdeti_érték; ciklusfeltétel; léptetés) {
 
 ```ts
 for (let counter: number = 0; counter < 5; counter++) {
-    console.log(`A számláló értéke:  ${counter}`);
+    console.log(`A számláló értéke: ${counter}`);
 }
 
 ```
@@ -29,9 +29,10 @@ for (let counter: number = 0; counter < 5; counter++) {
 
 ## 2️⃣ while ciklus (elöltesztelő ciklus)
 
-Akkor használjuk, ha nem tudjuk előre a lépések számát, csak egy feltételhez kötjük a futást.<br>
-Először ellenőrzi a feltételt, és csak utána fut le ha ciklusfeltétel igaz.<br>
-Lehet olyan eset, hogy a ciklusmag egyszer sem fut le.
+Akkor használjuk, ha nem tudjuk előre az ismétlések számát, csak egy feltételhez kötjük az ismétlést.<br>
+Először ellenőrzi a feltételt, és csak akkor fut le a ciklusmag, ha a ciklusfeltétel igaz.<br>
+A ciklusmagot nem ismétli (hajtja végre), ha a ciklusfeltétel hamis.<br>
+Lehet olyan eset, hogy a ciklusmag **egyszer sem fut le**.
 
 ### Alap szintaxis
 
@@ -58,7 +59,7 @@ while (szamlalo > 0) {
 
 ## 3️⃣ do-while ciklus (hátultesztelő ciklus)
 
-Hasonlít a while ciklushoz, de itt a ciklusmag ** egyszer mindenképpen lefut**, mivel a ciklusfeltételt a ciklusmag után ellenőrzi.
+Hasonlít a while ciklushoz, de itt a ciklusmag **egyszer mindenképpen lefut**, mivel a ciklusfeltételt a ciklusmag után ellenőrzi.
 
 ### Alap szintaxis
 
@@ -86,7 +87,7 @@ do {
 ## 4️⃣ for-of ciklus (érték szerinti bejárás, C# foreach)
 
 Modern és kényelmes megoldás tömbök (vagy más iterálható objektumok) elemeinek bejárására.<br>
-A ciklus változója az **értékeket** veszi fel a tömbből. Akkor használjuk jellemzően, ha nincs szükség az indexek értékeire.
+A ciklus változója az **értékeket** veszi fel a tömbből egymás után. Akkor használjuk jellemzően, ha nincs szükség az indexek értékeire.
 
 ### Alap szintaxis
 
@@ -112,12 +113,12 @@ for (const gyumolcs of gyumolcsok) {
 
 ## 5️⃣ for-in ciklus (kulcs/index szerinti bejárás)
 
-Objektumok tulajdonságainak vagy tömbök indexeinek bejárására szolgál. A **kulcsokat (vagy indexeket)** adja vissza.
+Objektumok **tulajdonságainak** (mezőinek) vagy tömbök **indexeinek** bejárására szolgál. A **kulcsokat (vagy indexeket)** adja vissza.
 
 ### Alap szintaxis
 
 ```ts
-for (const kulcs in objektum) {
+for (const mező in objektum) {
     // kód
 }
 
@@ -129,7 +130,8 @@ for (const kulcs in objektum) {
 let autok: string[] = ["Audi", "BMW", "Mercedes"];
 
 for (const index in autok) {
-    console.log(index + ": " + autok[index]); 
+    // Az index STRING típusú, ezért számmá kell alakítani az indexeléshez!
+    console.log(index + ": " + autok[Number(index)]);
     // Kimenet pl: "0: Audi"
 }
 
@@ -143,7 +145,7 @@ A ciklusok futását befolyásoló kulcsszavak.
 
 ### break (megszakítás)
 
-Azonnal kilép a ciklusból.
+Azonnal kilép a ciklusból, nincs több ismétlés.
 
 ```ts
 for (let i: number = 0; i < 10; i++) {
@@ -157,7 +159,7 @@ for (let i: number = 0; i < 10; i++) {
 
 ### continue (következő iteráció)
 
-Kihagyja a jelenlegi "kört", és ugrik a következőre.
+Kihagyja a jelenlegi "kört", és ugrik a következőre.<br>Csak akkor hajtódik végre újra a ciklusmag, ha a ciklusfeltétel (i < 5) igaz.
 
 ```ts
 for (let i: number = 0; i < 5; i++) {
@@ -169,6 +171,7 @@ for (let i: number = 0; i < 5; i++) {
 
 ```
 
+---
 
 ## 7️⃣ `forEach()` metódus (tömbök bejárása, nem ciklus!)
 

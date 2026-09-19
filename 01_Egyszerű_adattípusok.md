@@ -257,7 +257,7 @@ Ezért, ha egy változó típusa `number`, az még nem garancia arra, hogy való
 
 ## 1️⃣1️⃣ Hasznos trükk (Alapértelmezett érték)
 
-Ha egy művelet eredménye `NaN` lehet, használhatjuk a `||` (OR) operátort, vagy a `??` (nulla összevonás) operátort, hogy helyette 0-t vagy más értéket kapjunk.
+Ha egy művelet eredménye `NaN` lehet, használhatjuk a `||` (OR) operátort, hogy helyette 0-t vagy más értéket kapjunk. (A hasonló `??` operátor erre **nem** alkalmas – lásd a 11.1 pontot.)
 
 ```ts
 let bemenet = parseInt("korte"); // NaN lenne
@@ -265,4 +265,37 @@ let biztosSzam = bemenet || 0;   // Ha NaN (ami fals), akkor 0 lesz
 
 console.log(biztosSzam); // 0
 
+```
+
+---
+
+### 11.1 A `||` és a `??` közötti különbség
+
+A két operátor **más feltétel** esetén lép működésbe:
+
+| Operátor | Mikor adja vissza a jobb oldali (alapértelmezett) értéket? |
+|---|---|
+| `\|\|` (logikai VAGY) | Ha a bal oldal **hamis** (falsy): `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, `NaN` |
+| `??` (nullish coalescing) | **KIZÁRÓLAG** ha a bal oldal `null` vagy `undefined` |
+
+```ts
+console.log(0 || 100);          // 100  (a 0 hamis -> lecseréli)
+console.log(0 ?? 100);          // 0    (a 0 nem null/undefined -> megmarad)
+
+console.log("" || "Vendég");    // "Vendég" (az üres szöveg hamis -> lecseréli)
+console.log("" ?? "Vendég");    // ""       (az üres szöveg megmarad)
+
+console.log(null || 100);       // 100  (mindkettő ugyanúgy működik)
+console.log(null ?? 100);       // 100
+```
+
+#### ⚠️ NaN esetén viszont épp fordítva!
+
+Mivel a `NaN` **hamis (falsy)**, de **nem** `null` és **nem** `undefined`:
+
+```ts
+let bemenet = parseInt("korte"); // NaN
+
+console.log(bemenet || 0);   // 0    ✅ a || elkapja a NaN-t
+console.log(bemenet ?? 0);   // NaN  ❌ a ?? NEM kapja el a NaN-t!
 ```
